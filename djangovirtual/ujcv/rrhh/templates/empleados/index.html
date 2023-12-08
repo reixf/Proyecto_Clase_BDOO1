@@ -1,0 +1,69 @@
+{% extends 'base/base.html' %}
+
+{% block contenido %}
+
+<div class="card">
+    <h5 class="card-header card text-white bg-success mb-3">lista empleados </h5>
+    <div class="card body"><h5 class = "title"></h5>
+
+    
+
+  <!-- agregar-->
+   <div><a href="{% url 'Empleadosagregar' %}"class = "btn btn-success"><i class="bi bi-person-plus"></i></a></div>
+    <div>
+    <table id="empleados" class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>acciones</th>
+                <th>Identidad</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Sexo</th>
+                <th>DeptoId</th>
+                <th>PuestoId</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for empleado in empleados %}
+            <tr>
+                <td>
+                     <!-- editar-->
+                <a href="{% url 'Empleadoseditar' empleado.id %}"class = "btn btn-primary"><i class="bi bi-pen"></i> </a>
+                 <!-- eliminar-->
+                <a href="{% url 'Empleadoseliminar' empleado.id %}"class = "btn btn-danger"> <i class="bi bi-trash2"></i></a>
+                
+                
+            </td>
+        
+               
+                <td>{{ empleado.identidad }}</td>
+                <td>{{ empleado.nombre }}</td>
+                <td>{{ empleado.apellido }}</td>
+                <td>{{ empleado.sexo }}</td>
+                <td>{{ empleado.DeptoId }}</td>
+                <td>{{ empleado.puestoId }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+</div>
+    
+</div>
+    {% endblock %}
+
+    {% block JavaScript %}
+
+    <script>
+    var table =new  DataTable('#empleados',{
+
+     language: {
+        url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/es-ES.json',
+    },
+});
+
+    </script>
+    
+
+    {% endblock %}

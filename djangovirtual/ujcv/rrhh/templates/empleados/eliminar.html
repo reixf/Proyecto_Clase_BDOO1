@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+{% block contenido %}
+    <!--sustituir el object con el empleados eliminar-->
+    <p>{{object}}</p>
+    <form method="post">
+        {% csrf_token %}
+        <!--{{form.as_p}}-->
+       <!-- <button type="submit">Eliminar</button>-->
+     <!-- luego agregar esto <input type="text"value="{{empleadoseliminar.id}}">-->
+
+        <input type="submit" value="Eliminar">
+        <div><button><a href="{% url 'EmpleadosListar' %}">regresar</a></button></div>
+    </form>
+    {% endblock %}
