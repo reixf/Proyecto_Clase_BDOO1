@@ -14,6 +14,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django import views
 from django.contrib import admin
 from django.urls import path 
 #from .import views 
@@ -22,14 +23,26 @@ from .views import *
 
 urlpatterns = [
     #path('', views.expediente_index, name='index'),
+    #index y empleados 
     path('', EmpleadosListar.as_view(), name='EmpleadosListar'),
     path('agregar', EmpleadosAgregar.as_view(), name='Empleadosagregar'),
     path('editar/<int:pk>/', EmpleadosEditar.as_view(), name='Empleadoseditar'),
     path('eliminar/<int:pk>/', EmpleadosEliminar.as_view(), name='Empleadoseliminar'),
+
     #puestos
 
-    path('', PuestosListar.as_view(), name='puestosListar'),  
-    #no tienen html 
+    path('puestos', PuestosListar.as_view(), name='puestosListar'),  
     path('PuestosAgregar', PuestosAgregar.as_view(), name='PuestosAgregar'),
-    
+    path('puestos/editar/<int:pk>/', PuestosEditar.as_view(), name='puestosEditar'),
+    path('puestos/eliminar/<int:pk>/', PuestosEliminar.as_view(), name='puestosEliminar'),
+
+    #departamentos
+
+  #  path('departamentos', views.lista_departamentos, name='lista_departamentos'),
+   # path('departamentos/agregar/', views.crear_departamento, name='crear_departamento'),
+
+    #path('puestos', PuestosListar.as_view(), name='puestosListar'),  
+    #path('PuestosAgregar', PuestosAgregar.as_view(), name='PuestosAgregar'),
+    #path('puestoseditar/<int:pk>/', PuestosEditar.as_view(), name='PuestosEditar'),
+    #path('puestoseliminar/<int:pk>/', PuestosEliminar.as_view(), name='PuestosEliminar'),
 ]   
