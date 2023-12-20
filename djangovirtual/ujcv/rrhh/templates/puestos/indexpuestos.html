@@ -26,13 +26,14 @@
     </style>
 </head>
 <body>
-   <button> <div><a href="{% url 'Empleadosagregar' %}">Agregar puesto</a></div></button>
+   <button> <div><a href="{% url 'PuestosAgregar' %}">Agregar puesto</a></div></button>
     <div>
     <table>
         <thead>
             <tr>
-                <th>acciones</th>
-                <th>Identidad</th>
+                <th>botones</th>
+                <th>ID</th>
+                <th>Nombre del puesto</th>
                
             </tr>
         </thead>
@@ -40,15 +41,14 @@
             {% for puesto in puestos %}
             <tr>
                 <td>
-                <a href="{% url 'puestoeditar' empleado.id %}">Editar </a>
-                <a href="{% url 'puestoeliminar' empleado.id %}">Eliminar</a>
+               
                 
                 
-            </td>
+                </td>
         
                
-                <td>{{ puestos.id }}</td>
-                <td>{{ puestos.nombre }}</td>
+                <td>{{ puesto.PuestoId }}</td>
+                <td>{{ puesto.PuestoNombre }}</td>
                 
             </tr>
             {% endfor %}

@@ -1,4 +1,7 @@
 {% extends 'base/base.html' %}
+{% block estilos %}
+    
+{% endblock %}
 
 {% block contenido %}
 
@@ -10,6 +13,8 @@
 
   <!-- agregar-->
    <div><a href="{% url 'Empleadosagregar' %}"class = "btn btn-success"><i class="bi bi-person-plus"></i></a></div>
+   puestosListar
+   <div><a href="{% url 'puestosListar' %}"class = "btn btn-success"><i class="bi bi-person-plus"></i>puestos</a></div>
     <div>
     <table id="empleados" class="table table-striped" style="width:100%">
         <thead>
